@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.andxbes.links_analiser.FXMLDocumentController">
+   <top>
+      <AnchorPane prefHeight="21.0" BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar id="menu_about" layoutX="234.0" layoutY="11.0" prefHeight="26.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu fx:id="menu_file_group" mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem id="menu_button_save" fx:id="menu_button_save" mnemonicParsing="false" onAction="#button_save" text="Сохранить результаты" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem id="menu_button_about" fx:id="menu_button_about" mnemonicParsing="false" onAction="#menu_about" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TabPane>
+         <tabs>
+            <Tab text="Посковая фраза">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <TableView id="table_general" fx:id="table_general">
+                                <columns>
+                                  <TableColumn id="table_row_st" fx:id="table_row_st" prefWidth="75.0" text="Позиция в поиске" />
+                                  <TableColumn id="table_row_site" fx:id="table_row_site" prefWidth="75.0" text="Сайт" />
+                                    <TableColumn id="table_row_mysearcher" fx:id="table_row_mysearcher" prefWidth="75.0" text="Внешние ссылки (собственный поиск)" />
+                                    <TableColumn id="table_row_external" fx:id="table_row_external" prefWidth="75.0" text="Внешние ссылки" />
+                                    <TableColumn id="table_row_follower" fx:id="table_row_follower" prefWidth="75.0" text="Ссылается IP-адресов " />
+                                    <TableColumn id="table_row_nofollow" fx:id="table_row_nofollow" prefWidth="75.0" text="nofollow" />
+                                    <TableColumn id="table_row_price" fx:id="table_row_price" prefWidth="75.0" text="Стоимость" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="39.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button id="button_start" fx:id="button_start" layoutX="14.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#buton_start_click" text="Собрать информацию" />
+            <Button id="stop_button" fx:id="button_stop" layoutX="154.0" layoutY="7.0" mnemonicParsing="false" onMouseClicked="#buton_stop_click" text="Остановить" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </AnchorPane>
+   </bottom>
+   <left>
+      <AnchorPane prefWidth="274.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea id="text_searching_phrases" fx:id="text_searching_phrases" layoutX="-29.0" layoutY="42.0" prefHeight="200.0" prefWidth="232.0" promptText="Искомые фразы (каждая с новой строки )" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
