@@ -16,10 +16,11 @@ import javafx.stage.Stage;
  * @author andr
  */
 public class LinksAnaliser extends Application {
+    public static final String CHARSET = "UTF-8";
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Start.fxml"));
         
         Scene scene = new Scene(root);
         

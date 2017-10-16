@@ -6,6 +6,8 @@
 package ua.andxbes.links_analiser;
 
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,10 +18,10 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import ua.andxbes.links_analiser.browser.Top_20_Google;
 
-public class FXMLDocumentController implements Initializable {
+public class StartController implements Initializable,Observer {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -71,6 +73,10 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     void buton_start_click(MouseEvent event) {
+        
+          
+        // Будет цикл по запросам , каждый в своем потоке и в очереди на выполнение 
+            new Top_20_Google("Поставщики мебели");
 
     }
 
@@ -92,9 +98,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML // This method is called by the FXMLLoader when initialization is complete
     
     
-    // Получаем данные из другого источника 
-    // https://www.linkpad.ru/default.aspx?r=16&i=agsat.com.ua#/default.aspx?r=3&i=agsat.com.ua
+   
     public void initialize(URL location, ResourceBundle resources) {
         
+    }
+
+    @Override
+    public void update(Observable o, Object o1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

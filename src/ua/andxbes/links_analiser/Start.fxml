@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.andxbes.links_analiser.FXMLDocumentController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.andxbes.links_analiser.StartController">
    <top>
       <AnchorPane prefHeight="21.0" BorderPane.alignment="CENTER">
          <children>
@@ -36,7 +36,7 @@
       </AnchorPane>
    </top>
    <center>
-      <TabPane>
+      <TabPane id="tab_panel" fx:id="tab_panel">
          <tabs>
             <Tab text="Посковая фраза">
                <content>
