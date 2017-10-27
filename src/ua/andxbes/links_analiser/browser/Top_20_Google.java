@@ -94,6 +94,7 @@ public class Top_20_Google {
                     for (int i = 0; i < list.getLength(); i++) {
                         Element node = (Element) list.item(i);
                         links.add(node.getAttribute("href"));
+                        System.out.println(node.getAttribute("href"));
                     }
                     if (links.size() > 0) {
                         Top_20_Google.top.put(Top_20_Google.this.query, links);
@@ -111,6 +112,26 @@ public class Top_20_Google {
         String url_query = URLEncoder.encode(this.query, LinksAnaliser.CHARSET);
         String query_link = Top_20_Google.SEARCH_MASHINE + "?q=" + url_query + "&num=" + Top_20_Google.PER_PEGE + "&ie=UTF-8&lr=lang_ru"; 
         return query_link;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+        for (Map.Entry<String, List<String>> entry : top.entrySet()) {
+            String key = entry.getKey();
+            List<String> value = entry.getValue();
+            
+            sb.append(key).append("\n");
+            
+            for (String link : value) {
+                sb.append(link);
+            }
+        }
+        
+        
+        
+        return sb.toString();
     }
     
     

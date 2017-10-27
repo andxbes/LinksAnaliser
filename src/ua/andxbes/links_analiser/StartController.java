@@ -21,7 +21,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import ua.andxbes.links_analiser.browser.Top_20_Google;
 
-public class StartController implements Initializable,Observer {
+public class StartController implements Initializable, Observer {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
@@ -73,11 +73,19 @@ public class StartController implements Initializable,Observer {
 
     @FXML
     void buton_start_click(MouseEvent event) {
-        
-          
-        // Будет цикл по запросам , каждый в своем потоке и в очереди на выполнение 
-            new Top_20_Google("Поставщики мебели");
+        String phrases = text_searching_phrases.getText();
+//        System.out.println(phrases);
+        if (!phrases.isEmpty()) {
+            String[] prases = phrases.split("\n");
 
+            for (String prase : prases) {
+                // Будет цикл по запросам , каждый в своем потоке и в очереди на выполнение 
+                Top_20_Google top  =  new Top_20_Google(prase);
+                
+//                System.out.println(top);
+            }
+
+        }
     }
 
     @FXML
@@ -94,13 +102,12 @@ public class StartController implements Initializable,Observer {
     void menu_about(ActionEvent event) {
 
     }
+
     @Override
     @FXML // This method is called by the FXMLLoader when initialization is complete
-    
-    
-   
+
     public void initialize(URL location, ResourceBundle resources) {
-        
+
     }
 
     @Override
